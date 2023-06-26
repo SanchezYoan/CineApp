@@ -28,6 +28,7 @@
       cursor: pointer;
       z-index: 10;
       position: relative;
+      left: 40px;
 
       &:hover {
         background: $black;
@@ -40,6 +41,7 @@
     display: flex;
     justify-content: space-around;
     cursor: pointer;
+    color: white;
 
     #goodToBad {
       border-radius: 10px 0 0 10px;
@@ -49,7 +51,9 @@
     }
     #goodToBad,
     #badToGood {
+      border: none;
       background: $color-1;
+      color: $white;
       width: 110px;
       transition: 0.3s;
       position: relative;

@@ -1,16 +1,23 @@
-import React from "react";
+// import React, { useState } from "react";
 
 const Card = ({ moviedata }) => {
+  // const [item, setItem] = useState([]);
+  // console.log(item);
+
   const data = {
-    title: moviedata.original_title,
+    title: moviedata.title,
     date: moviedata.release_date,
     img: moviedata.strMealThumb,
-    instructions: moviedata.strInstructions,
     genre: moviedata.genre_ids.map((genre) => <li>{genre}</li>),
     note: moviedata.vote_average,
     synopsis: moviedata.overview,
   };
 
+  const liked = () => {
+    localStorage.title = data.title;
+    localStorage.date = data.date;
+    localStorage.synopsis = data.synopsis;
+  };
   return (
     <div className="card">
       <img src="img/poster.jpg" alt={data.title} />
@@ -20,7 +27,9 @@ const Card = ({ moviedata }) => {
       <ul>{data.genre}</ul>
       <h3>Synopsis</h3>
       <p>{data.synopsis}</p>
-      <button className="btn">Ajouter aux coups de coeur</button>
+      <button className="btn" onClick={() => liked()}>
+        Ajouter aux coups de coeur
+      </button>
     </div>
   );
 };

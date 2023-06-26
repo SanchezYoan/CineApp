@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import axios from "axios";
+import Form from "../components/Form";
 
 const Home = () => {
-  const [inputSearch, setInputSearch] = useState("");
   const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
@@ -19,19 +19,20 @@ const Home = () => {
     <div className="header">
       <nav>
         <ul>
-          <a href="/">Accueil</a>
-          <a href="/">Coups de coeur</a>
+          <i className="fas fa-home">
+            <a href="/">Accueil</a>
+          </i>
+          <i className="fas fa-heart">
+            <a href="/likes">Coups de coeur</a>
+          </i>
         </ul>
       </nav>
       <h1>React Movie</h1>
-      <input type="text" onChange={(e) => setInputSearch(e.target.value)} />
-      <input type="submit" />
+      <Form />
       <div className="result">
-        {movieData
-          .filter((movie) => movie.title.includes(inputSearch))
-          .map((movie, index) => (
-            <Card moviedata={movie} index={index} />
-          ))}
+        {movieData.map((movie, index) => (
+          <Card moviedata={movie} index={index} />
+        ))}
       </div>
     </div>
   );

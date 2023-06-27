@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
-import Likes from "./pages/Likes";
+import LikePage from "./pages/LikePage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/Likes" element={<Likes />} />
+            <Route path="/coups-de-coeur" element={<LikePage />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
